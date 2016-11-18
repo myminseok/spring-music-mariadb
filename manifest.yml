@@ -1,8 +1,13 @@
 ---
 applications:
-- name: spring-music
-  memory: 512M
+- name: spring-music-mariadb
+  memory:  512M
   instances: 1
-  host: spring-music-${random-word}
+  host: spring-music-mariadb
   path: build/libs/spring-music.war
+  services:
+  - mymaria
+  env:
+      JAVA_OPTS: -Djava.security.egd=file:///dev/urandom
+  
 

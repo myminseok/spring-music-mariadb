@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# Copyright 2014 Pivotal, Inc. All rights reserved.
+
+# app-suite-installer
+
+echo ""
+echo "Importing Pivotal GPG key"
+rpm --import http://packages.gopivotal.com/pub/rpm/rhel6/app-suite/RPM-GPG-KEY-PIVOTAL-APP-SUITE-EL6
+
+echo "Installing Pivotal App Suite Yum Repo configuration RPM"
+rpm -ivf  http://packages.gopivotal.com/pub/rpm/rhel6/app-suite/app-suite-repo-1.0-4.noarch.rpm
+
+/etc/pivotal/pivotal-eula-acceptance.sh
